@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="build/css/intlTelInput.css">
+  <link rel="stylesheet" href="build/css/demo.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+  <title>Submit ticket</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 form-box">
+        <!--------left section start here ----------->
+        <div class="col-md-4 left-section">
+          <div class="left-sec-banner">
+            <img
+              src="https://images.pexels.com/photos/8866790/pexels-photo-8866790.jpeg?auto=compress&cs=tinysrgb&w=600"
+              width="338px" alt="banner-image" style="border-radius:5px" />
+          </div>
+        </div>
+        <!--------left section ends here ----------->
+
+        <!---------right section --------->
+        <div class="col-md-8 right-section">
+          <form name="myForm" action="/" method="post" id="myForm">
+            <!----------- right section top start here ------------>
+            <div class="row">
+              <div class="col-md-12 right-sec-top">
+                <div class="back-btn">
+                  <button id="back-btn" onclick="BackStep()">
+                    <i class="fa-solid fa-angle-left fa-xl"></i>
+                  </button>
+                </div>
+                <div class="steps-title">
+                  <h5 class="active-title" id="title1">Select the Country and Licensing Body</h5>
+                  <h5 id="title2">What is your concern?</h5>
+                  <h5 id="title3">Enter Requested Details</h5>
+                </div>
+                <div class="forward-btn">
+                  <button id="forward-btn" onclick="activeTitle()">
+                    <i class="fa-solid fa-angle-right fa-xl"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!----------- right section top ends here ------------>
+
+            <!------------right section searchbar start here ------------>
+            <div class="row">
+              <div class="col-md-12" id="right-sec-searchbar">
+                <input type="text" placeholder="Search here for other options" autocomplete="off" id="find"
+                  onkeyup="search()" onclick="handleClickInput()" >
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <!-- dropdown1 start here -->
+                <div id="dropdown-1" class="dropdown">
+                  <ul id="drop1-clients-list">
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn client_data" value="">Sharjah Health
+                        Authority</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">Sharjah Social Services
+                        Department</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">Department of Community
+                        Development Abu Dhabi</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">Dubai Health
+                        Authority</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">Saudi Commission for Health
+                        Specialties</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">Dr. Hamid S. Al Ahmadi
+                        Hospital</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">National Center for
+                        Complementary and Alternative Medicine</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">The Council for Regulating
+                        the Practice of Engineering Professions</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">Ministry of Works,
+                        Municipalities Affairs and Urban Planning</button>
+                    </li>
+
+                    <li>
+                      <button type="radio" data-type="clientName" class="next-btn" value="">National Health Regulatory
+                        Authority – Bahrain (NHRA)</button>
+                    </li>
+                  </ul>
+                </div>
+                <!-- dropdown1 ends here -->
+
+                <!-- dropdown2 start here-->
+                <div id="dropdown-2" class="dropdown"> 
+                  <ul id="type-of-req-list-search">
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">I am facing
+                        technical issue</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">My
+                        application is delayed</button>
+                    </li>
+
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">How to download
+                        a report?</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">Error in
+                        my report</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">Paid
+                        services center support</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">How to
+                        apply for verification?</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">I need a
+                        new document to be verified</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">I have a
+                        fee related query</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">Re-verification
+                        request</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">Re-issuance of previous
+                        Dataflow report</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">I need to
+                        register as an Agency/PRO</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">Refund
+                        request</button>
+                    </li>
+
+                    <li>
+                      <button data-type="requestType" type="radio" class="next-btn" value="">I am
+                        unable to make payment</button>
+                    </li>
+                  </ul>
+                </div> 
+                <!---- dropdown2 ends here -->
+              </div>
+            </div>
+            <!------------right section searchbar ends here ------------>
+
+            <!-----------right section steps start here ---------------->
+            <div class="row ">
+              <div class="col-md-12">
+
+                <div id="step1" class="step active  for-search" data-id="1">
+                  <!------------- country and clients list start here ------------>
+
+                  <!-- country list row1 start-->
+                  <div class="row country-list-row1">
+                    <div class="col-md-12 countries_and_clients">
+                      <button type="radio" class="country active_country" onclick="openUAEClients()">UAE</button>
+                      <button type="radio" class="country" onclick="openKSAClients()">KSA</button>
+                    </div>
+                  </div>
+                  <!----------- country list row1 end ------------>
+
+                  <!-- UAE clients list start -->
+                  <div class="col-md-12 clients show-clients" id="uae-clients-list">
+                    <button class="next-btn active-client" data-type="clientName">Dubai Corporation for
+                      Ambulance Services</button>
+                    <button class="next-btn" data-type="clientName">Community Development Authority
+                      (CDA)</button>
+                    <button class="next-btn" data-type="clientName">Department of Health – Abu
+                      Dhabi</button>
+                    <button class="next-btn" data-type="clientName">Ministry of Education UAE</button>
+                    <button class="next-btn" data-type="clientName">Ministry of Health and
+                      Prevention</button>
+                    <button class="next-btn" data-type="clientName">Sharjah Health Authority</button>
+                    <button class="next-btn" data-type="clientName">Sharjah Social Services
+                      Department</button>
+                    <button class="next-btn" data-type="clientName">Dubai Health Authority</button>
+                    <button class="next-btn" data-type="clientName">Department of Community Development Abu
+                      Dhabi</button>
+                  </div>
+                  <!-- UAE clients list end -->
+
+                  <!-- KSA clients list start -->
+                  <div class="col-md-12 clients" id="ksa-clients-list">
+                    <button class="next-btn" data-type="clientName">National Center for Complementary and Alternative
+                      Medicine</button>
+                    <button class="next-btn" data-type="clientName">Saudi Commission for Health Specialties</button>
+                    <button class="next-btn" data-type="clientName">Dr. Hamid S. Al Ahmadi Hospital</button>
+                  </div>
+                  <!-- KSA clients list end -->
+
+                  <!-- country list row2 start-->
+                  <div class="col-md-12 countries_and_clients country-list-row2 ml-0">
+                    <button type="radio" class="country" value="" onclick="openQatarClients()">QATAR</button>
+                    <button type="radio" class="country" value="" onclick="openOmanClients()">OMAN</button>
+                  </div>
+                  <!--------- country list row2 end -------->
+
+                  <!-- QATAR clients list start -->
+                  <div class="col-md-12 clients" id="qatar-clients">
+                    <button class="next-btn" data-type="clientName">The Department of Healthcare Professions (DHP)- Ministry of Public Health ( MOPH)- State of Qatar</button>
+                  </div>
+                  <!-- QATAR clients list end -->
+
+                  <!-- OMAN clients list start -->
+                  <div class="col-md-12 clients" id="oman-clients">
+                    <button class="next-btn" data-type="clientName">Oman Society of Engineers</button>
+                    <button class="next-btn" data-type="clientName">Oman Medical Specialty Board</button>
+                  </div>
+                  <!-- OMAN clients list end -->
+                </div>
+                <!-- step1 ends here -->
+
+                <!-- step 2 start here -->
+                <!----------- right section type of request start here ----------->
+                <div id="step2" class="row step slideInRight for-search" data-id="2">
+                  <div class="col-md-12 type-of-req">
+                    <div class="col-md-6">
+                      <ul id="type-of-req-list">
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn active-type-of-req" value="" name="paid">Paid
+                            services center support</button>
+                        </li>
+
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn" name="how" value="">How
+                            to apply for verification?</button>
+                        </li>
+
+
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn active-type-of-req " value="">I
+                            need a new document to be verified</button>
+                        </li>
+
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn" value="">I
+                            have a fee related query</button>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                      <ul id="type-of-req-list">
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn" value="">I am facing technical
+                            issue</button>
+                        </li>
+
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn" value="">My application is
+                            delayed</button>
+                        </li>
+
+
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn" value="">How to download a
+                            report?</button>
+                        </li>
+
+                        <li>
+                          <button data-type="requestType" type="radio" class="next-btn" value="">Error in my
+                            report</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!----------- right section type of request ends here ----------->
+                <!--------step2 ends here ---------->
+
+                <!----------- right section step3, applicant details & description start here ----------->
+                <div id="step3" class="row step slideInRight">
+                  <div class="col-md-12 applicant-inpt d-flex">
+                    <div class="col-md-6 applicant-inpt_left">
+                      <input type="text" class="w-100" placeholder="First Name" id="fname" name="Fname">
+                      <input type="email" class="w-100" placeholder="Applicant's Email" id="email" name="email">
+                      <input type="text" class="w-100" placeholder="Case Number" id="case" name="case number">
+                      <input type="text" class="w-100" placeholder="PRO Name" id="proName" name="PRO name">
+                      <input type="text" class="w-100" placeholder="Facility Name " id="facilityName" name="facility name">
+                    </div>
+                    
+                    <div class="col-md-6 applicant-inpt_right">
+                      <input type="text" class="w-100" placeholder="Last Name" id="lname" name="Lname">
+                      <input type="email" class="w-100" placeholder="PRO Registered Email" disable id="proEmail"
+                        name="pro email">
+                      <input id="telephone" name="phone" type="number" placeholder="mobile number">
+                        <input type="text" class="w-100" placeholder="Registered Passport Number" id="passport"
+                        name="passport number">
+                        <input type="text" class="w-100" placeholder="Client Rejection Remark If Any " id="remark"
+                        name="remark">
+                    </div>
+                    <div class="col-md-12 textarea-input-field">
+                        <!-- <textarea id="description" name="description"></textarea> -->
+
+                        <!-- <form class="form-horizontal" role="form" name="f3" id="f3" > -->
+                          <div class="col-xs-8">
+                              <textarea class="ckeditor required" name="cktext" id="cktext"></textarea>
+                          </div>
+                           <!-- <button type="submit" class="btn btn-default btn-success">Submit</button> -->
+                         <!-- </form> -->
+                         
+                        <div class="col-md-6" id="screenshot">
+                        <input type="file" name="ss doc" class="w-100 screenshotErr" multiple id="screenshotErr">
+                      </div>
+                      <div class="col-md-6" id="attach">
+                        <input type="file" name="document" id="supportingDoc" class="w-100 supportingDoc" placeholder="Attach Supporting Document:" multiple>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="submit_btn text-center">
+                    <button type="submit" id="submit_btn" onclick="validateForm()">Submit</button>
+                  </div>
+                </div>
+                <!----------- right section step3, applicant details & description endss here ----------->
+          </form>
+        </div>
+      </div>
+      <!-----------right section steps ends here ----------->
+
+      <!--------- search other section start here ---------->
+      <div class="row">
+        <div class="col-md-12 search-other">
+          <div class="autocomplete">
+            <div class="show" id="searchOthers" title="click here to search other queries">Others</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script src="./form.js">
+</script>
+<!------------- CDN ----------------->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!--------- CK editor start here -------->
+<script>
+      ClassicEditor
+    .create( document.querySelector( '#cktext' ), {
+        placeholder: 'Type the content here!'
+    } )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+
+
+    // $(document).ready(function(){
+    //   $("#cktext").validate(
+    //   {
+    //       ignore: [],
+    //       debug: false,
+    //       rules: { 
+    
+    //           cktext:{
+    //                required: function() 
+    //               {
+    //                CKEDITOR.instances.cktext.updateElement();
+    //               },
+    
+    //                minlength:3
+    //           }
+    //       },
+    //       messages:
+    //           {
+    
+    //           cktext:{
+    //               required:"Please enter Text",
+    //               minlength:"Please enter 10 characters"
+    
+    
+    //           }
+    //       }
+    //   });
+    // });
+   
+</script>
+<!--------- CK editor end here -------->
+<script src="build/js/intlTelInput.js"></script>
+  <!--------- Country code start here ---------->
+<script>
+  var input = document.querySelector("#telephone");
+  window.intlTelInput(input, {
+    // allowDropdown: false,
+    // autoHideDialCode: false,
+    // autoPlaceholder: "off",
+    // dropdownContainer: document.body,
+    // excludeCountries: ["us"],
+    // formatOnDisplay: false,
+    // geoIpLookup: function(callback) {
+    //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+    //     var countryCode = (resp && resp.country) ? resp.country : "";
+    //     callback(countryCode);
+    //   });
+    // },
+    // hiddenInput: "full_number",
+    // initialCountry: "auto",
+    // localizedCountries: { 'de': 'Deutschland' },
+    // nationalMode: false,
+    // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+    // placeholderNumberType: "MOBILE",
+    // preferredCountries: ['cn', 'jp'],
+    // separateDialCode: true,
+    utilsScript: "build/js/utils.js",
+  });
+</script>
+<!--------- Country code end here ---------->
+</html>
